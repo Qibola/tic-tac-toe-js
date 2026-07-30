@@ -22,7 +22,7 @@ This project is built a small piece at a time. Progress:
 - [x] Day 1 — Project scaffold (index.html, style.css, script.js, README)
 - [x] Day 2 — Render the 3x3 board + styling
 - [x] Day 3 — Click handling + alternating X/O turns
-- [ ] Day 4 — Win and draw detection
+- [x] Day 4 — Win and draw detection
 - [ ] Day 5 — Status text + reset button
 - [ ] Day 6 — Responsive polish
 
