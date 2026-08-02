@@ -23,7 +23,7 @@ This project is built a small piece at a time. Progress:
 - [x] Day 2 — Render the 3x3 board + styling
 - [x] Day 3 — Click handling + alternating X/O turns
 - [x] Day 4 — Win and draw detection (ran out of Claude tokens)
-- [ ] Day 5 — Status text + reset button
+- [x] Day 5 — Status text + reset button
 - [ ] Day 6 — Responsive polish
 
 ## Development

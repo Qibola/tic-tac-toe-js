@@ -65,3 +65,25 @@ h1 {
   outline: 2px solid var(--fg);
   outline-offset: -2px;
 }
+
+.reset {
+  margin-top: 1.25rem;
+  padding: 0.6rem 1.4rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.reset:hover {
+  filter: brightness(1.1);
+}
+
+.reset:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}

@@ -3,6 +3,7 @@
 // Day 2: render the empty 3x3 board into #board.
 // Day 3: click handling + alternating X/O turns.
 // Day 4: win and draw detection.
+// Day 5: live status text + "New game" reset button.
 
 "use strict";
 
@@ -58,6 +59,16 @@ function makeMove(game, index) {
   return true;
 }
 
+// Reset an existing game object back to its starting state, in place, so any
+// code holding a reference to it keeps working.
+function resetGame(game) {
+  game.board.fill(null);
+  game.current = "X";
+  game.winner = null;
+  game.over = false;
+  return game;
+}
+
 // Build the 3x3 grid of cells inside the given board element.
 // Each cell is a <button> so it is keyboard-focusable and accessible.
 function renderBoard(boardEl) {
@@ -77,6 +88,7 @@ if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", () => {
     const board = document.getElementById("board");
     const status = document.getElementById("status");
+    const resetButton = document.getElementById("reset");
     if (!board) return;
 
     const game = createGame();
@@ -89,6 +101,13 @@ if (typeof document !== "undefined") {
       else status.textContent = `${game.current}'s turn`;
     };
 
+    // Repaint every cell from the game state — used after a reset.
+    const renderCells = () => {
+      cells.forEach((cell, i) => {
+        cell.textContent = game.board[i] === null ? "" : game.board[i];
+      });
+    };
+
     board.addEventListener("click", (event) => {
       const cell = event.target.closest(".cell");
       if (!cell || !board.contains(cell)) return;
@@ -98,11 +117,19 @@ if (typeof document !== "undefined") {
       updateStatus();
     });
 
+    if (resetButton) {
+      resetButton.addEventListener("click", () => {
+        resetGame(game);
+        renderCells();
+        updateStatus();
+      });
+    }
+
     updateStatus();
   });
 }
 
 // Export for a headless test runner (ignored by browsers).
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { createGame, makeMove, renderBoard, checkWinner, isDraw, WIN_LINES };
+  module.exports = { createGame, makeMove, resetGame, renderBoard, checkWinner, isDraw, WIN_LINES };
 }
