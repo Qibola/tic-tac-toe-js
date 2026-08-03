@@ -24,7 +24,7 @@ This project is built a small piece at a time. Progress:
 - [x] Day 3 — Click handling + alternating X/O turns
 - [x] Day 4 — Win and draw detection (ran out of Claude tokens)
 - [x] Day 5 — Status text + reset button
-- [ ] Day 6 — Responsive polish
+- [x] Day 6 — Responsive polish
 
 ## Development
 
